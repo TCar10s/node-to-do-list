@@ -1,7 +1,8 @@
-const { inquirerMenu, pausa } = require('./helpers/inquirer');
 require('colors');
 
-console.clear();
+const { inquirerMenu, pausa } = require('./helpers/inquirer');
+const Task = require('./models/task');
+const Tasks = require('./models/tasks');
 
 const main = async () => {
     let option = '';
