@@ -39,7 +39,6 @@ const questions = [
   },
 ];
 
-
 const inquirerMenu = async () => {
   // console.clear();
 
@@ -53,21 +52,37 @@ const inquirerMenu = async () => {
   return option;
 };
 
-const pausa = async () => {
+const pause = async () => {
+  const question = [
+    {
+      type: 'input',
+      name: 'message',
+      message: `Press ${'ENTER'.green} to continue`,
+    },
+  ];
 
-    
-    const question = [
-        {
-            type: 'input',
-            name: 'message',
-            message: `Press ${'ENTER'.green} to continue`
-        }
-    ];
+  await inquirer.prompt(question);
+};
 
-    await inquirer.prompt(question);
+const readInput = async (message) => {
+  const question = [
+    {
+      type: 'input',
+      name: 'desc',
+      message,
+      validate(value) {
+        if (value.length === 0) throw 'Please enter a value';
+        return true;
+      },
+    },
+  ];
+
+  const { desc } = await inquirer.prompt(question);
+  return desc;
 };
 
 module.exports = {
   inquirerMenu,
-  pausa
+  pause,
+  readInput,
 };

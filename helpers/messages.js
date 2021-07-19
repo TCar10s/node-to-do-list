@@ -34,7 +34,7 @@ const showMenu = () => {
 
 };
 
-const pausa = () => {
+const pause = () => {
 
     return new Promise((resolve, reject) => {
 
@@ -53,5 +53,5 @@ const pausa = () => {
 
 module.exports = {
     showMenu,
-    pausa
+    pause
 };
