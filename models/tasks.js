@@ -11,6 +11,13 @@ const Task = require('./task');
 class Tasks {
   _list = {};
 
+  get listArray() {
+    const list = [];
+    Object.keys(this._list).forEach((key) => list.push(this._list[key]));
+
+    return list;
+  }
+
   constructor() {
     this._list = {};
   }
@@ -20,9 +27,7 @@ class Tasks {
     this._list[task.id] = task; // New uudi property
   }
 
-  listTasks() {
-
-  }
+  listTasks() {}
 }
 
 module.exports = Tasks;
